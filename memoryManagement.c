@@ -9,15 +9,15 @@ int function(int n){
     if(n == 4)
         return 0;
     int stack_n = n;
-    printf("Address of stack_%d in function: %p\n", n, (void*)&stack_n);
+    printf("Address of stack_%d: %p\n", n, (void*)&stack_n);
     function(n+1);
 }
+
 int main () {
     printf("Address of global_1: %p\n", (void*)&global_1);
     printf("Address of global_2: %p\n", (void*)&global_2);
-    printf("Address of global_3: %p\n", (void*)&global_3);
+    printf("Address of global_3: %p\n\n", (void*)&global_3);
 
-    printf("\nCalling function to observe stack growth:\n");
     function(1);
 
     int *heap_1 = (int*)malloc(sizeof(int));
@@ -35,5 +35,3 @@ int main () {
     return 0;
     
 }
-
-
